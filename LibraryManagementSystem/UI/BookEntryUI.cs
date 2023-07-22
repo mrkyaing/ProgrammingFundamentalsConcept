@@ -13,22 +13,42 @@ namespace LibraryManagementSystem.UI {
         }
 
         private void btnsave_Click(object sender, EventArgs e) {
-            BookModel book = new BookModel()
-            {
-                Id=Guid.NewGuid().ToString(),
-                ISBN=txtisbn.Text,
-                Name=txtname.Text,
-                AuthorName=txtauthornane.Text,
-                Category=txtcategory.Text,
-                UnitPrice=Convert.ToDecimal(txtunitprice.Text),
-                PublishedAt=Convert.ToDateTime(dtppublishedat.Text),
-                PublisherName=txtpublishername.Text,
-                Volume=txtvolume.Text,
-            };
-            if (bookDAO.Create(book)) {
-                MessageBox.Show("1 record is created successfully.");
+            if (btnsave.Text.Equals("Update")) {
+                BookModel book = new BookModel(){
+                    Id =bookModel.Id,//selected Id >> for update a existing book 
+                    ISBN = txtisbn.Text,
+                    Name = txtname.Text,
+                    AuthorName = txtauthornane.Text,
+                    Category = txtcategory.Text,
+                    UnitPrice = Convert.ToDecimal(txtunitprice.Text),
+                    PublishedAt = Convert.ToDateTime(dtppublishedat.Text),
+                    PublisherName = txtpublishername.Text,
+                    Volume = txtvolume.Text,
+                };
+                if (bookDAO.Update(book)) {
+                    MessageBox.Show("1 record is updated successfully.");
+                }else {
+                    MessageBox.Show("error occur when 1 record is updated.");
+                }
             }else {
-                MessageBox.Show("error occur when 1 record is created.");
+                BookModel book = new BookModel()
+                {
+                    Id = Guid.NewGuid().ToString(),// for create a book 
+                    ISBN = txtisbn.Text,
+                    Name = txtname.Text,
+                    AuthorName = txtauthornane.Text,
+                    Category = txtcategory.Text,
+                    UnitPrice = Convert.ToDecimal(txtunitprice.Text),
+                    PublishedAt = Convert.ToDateTime(dtppublishedat.Text),
+                    PublisherName = txtpublishername.Text,
+                    Volume = txtvolume.Text,
+                };
+                if (bookDAO.Create(book)) {
+                    MessageBox.Show("1 record is created successfully.");
+                }
+                else {
+                    MessageBox.Show("error occur when 1 record is created.");
+                }
             }
         }
 
