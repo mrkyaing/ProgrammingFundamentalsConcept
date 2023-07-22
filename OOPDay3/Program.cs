@@ -1,0 +1,40 @@
+﻿using OOPDay3;
+Console.WriteLine("Hello, World!");
+Cat myCat = new Cat();
+myCat.Name = "Spicy";
+myCat.Weight = 3; 
+myCat.Height =1;
+myCat.LifeSpan = 1;
+myCat.Color = "Yellow";
+myCat.DisplayInfo();
+myCat.Eat();
+myCat.Sleep();
+myCat.Speak();
+myCat.Climb();
+Console.WriteLine("========================");
+Dog myDog = new Dog();
+myDog.Name = "Wookey";
+myDog.Weight = 5;
+myDog.Height = 2;
+myDog.LifeSpan = 3;
+myDog.Color = "Black";
+myDog.DisplayInfo();
+myDog.Eat();
+myDog.Sleep();
+myDog.Speak();
+myDog.GuardHouse();//specalization 
+Console.WriteLine("========================");
+Elephant e = new Elephant();
+e.Name = "MonMon";
+e.Weight = 5;
+e.LifeSpan = 10;
+e.Color = "Brow";
+e.Height = 5;
+e.DisplayInfo();
+e.Speak();
+Console.WriteLine("========================");
+Calculator calculaator = new Calculator();
+calculaator.Add(10, 20);//30
+calculaator.Add(20, 30,10);//60
+calculaator.Add(20.6, 30.3);
+Console.WriteLine();
